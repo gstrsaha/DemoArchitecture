@@ -10,13 +10,12 @@ public class LoggingFilter {
 
     CommonUtil cu = new CommonUtil();
 
-    private static final Logger logger =
-            LogManager.getLogger(MasterController.class);
+    private static final Logger logger = LogManager.getLogger(MasterController.class);
 
     long start_time = 0;
     long end_time = 0;
 
-    public void con_entryLog(String Dev , String Service, String requestBody) {
+    public void con_entryLog(String Dev, String Service, String requestBody) {
 
         start_time = System.currentTimeMillis();
 
@@ -24,7 +23,7 @@ public class LoggingFilter {
         logger.info("inputBean: " + requestBody);
     }
 
-    public void con_exitLog(String Dev , String URI) {
+    public void con_exitLog(String Dev, String URI) {
 
         end_time = System.currentTimeMillis();
 
