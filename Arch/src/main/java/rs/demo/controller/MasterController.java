@@ -57,4 +57,16 @@ public class MasterController implements MasterURIConstant {
       return response;
    }
 
+   // Demo Purpose Post Mapping with DB
+   @RequestMapping(value = MasterURIConstant.POST__DB_DEMO, method = RequestMethod.POST, produces = "application/json", headers = {
+         "Accept=application/json" })
+   public String dbValFetch(@RequestBody DemoReq demReq) {
+      lf.con_entryLog("RS", "POST__DB_DEMO", demReq.getName());
+
+      String response = "hello welcome " + demReq.getName();
+
+      lf.con_exitLog("RS", MasterURIConstant.POST__DB_DEMO);
+
+      return response;
+   }
 }
