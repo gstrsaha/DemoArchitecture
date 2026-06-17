@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -12,11 +13,13 @@ import org.springframework.web.bind.annotation.RestController;
 import rs.demo.log.LoggingFilter;
 import rs.demo.model.DemoReq;
 import rs.demo.model.Rs;
+import rs.demo.service.DemoService;
 import rs.demo.store.CommonUtil;
 
 @RestController
 public class MasterController implements MasterURIConstant {
-
+   @Autowired
+   private DemoService demoService;
    public static List<String> service_name = Arrays.asList(
          "/welcome",
          "/");
@@ -60,13 +63,13 @@ public class MasterController implements MasterURIConstant {
    // Demo Purpose Post Mapping with DB
    @RequestMapping(value = MasterURIConstant.POST__DB_DEMO, method = RequestMethod.POST, produces = "application/json", headers = {
          "Accept=application/json" })
-   public String dbValFetch(@RequestBody DemoReq demReq) {
+   public String dbValFetch(@RequestBody DemoReq demReq) throws Exception {
       lf.con_entryLog("RS", "POST__DB_DEMO", demReq.getName());
 
       String response = "hello welcome " + demReq.getName();
 
       lf.con_exitLog("RS", MasterURIConstant.POST__DB_DEMO);
 
-      return response;
+      return demoService.getData(demReq);
    }
 }

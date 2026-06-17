@@ -1,3 +1,4 @@
-FROM openjdk:28-ea-trixie
+FROM eclipse-temurin:25-jre
 COPY target/Arch-0.0.1.war /tmp/Arch-0.0.1.war
-CMD ["java","-war","/tmp/Arch-0.0.1.war"]
+EXPOSE 8081
+ENTRYPOINT ["java","-jar","/tmp/Arch-0.0.1.war"]
