@@ -37,6 +37,7 @@ public class MasterController implements MasterURIConstant {
    LoggingFilter lf = new LoggingFilter();
 
    // Demo Purpose Get Mapping
+   
    @RequestMapping(value = MasterURIConstant.GET_WELCOME, method = RequestMethod.GET, produces = "application/json", headers = {
          "Accept=application/json" })
    public String helloPrint() {
