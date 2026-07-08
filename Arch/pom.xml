@@ -19,6 +19,9 @@
 
     <properties>
         <java.version>25</java.version>
+        <sonar.projectKey>Arch</sonar.projectKey>
+        <sonar.projectName>Arch</sonar.projectName>
+        <sonar.host.url>http://localhost:9000</sonar.host.url>
     </properties>
 
     <dependencies>
@@ -162,7 +165,8 @@
     <build>
         <plugins>
 
-            <!-- Spring Boot Plugin -->
+
+            <!-- Spring Boot -->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
@@ -172,7 +176,7 @@
             <plugin>
                 <groupId>org.sonarsource.scanner.maven</groupId>
                 <artifactId>sonar-maven-plugin</artifactId>
-                <version>5.7.0.6970</version>
+                <version>3.11.0.3922</version>
             </plugin>
 
         </plugins>
